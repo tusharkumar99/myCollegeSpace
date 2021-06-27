@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+   
+    <title>myCollegeSpace {% block title %}{% endblock title %}</title>
+   
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/images/fav.png' %}" rel="icon">
+    <link href="{% static 'assets/images/fav.png' %}" rel="apple-touch-icon">
+
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/s.css' %}">
+
+
+    {% block stylesheet %}
+    {% comment %} ==========STYLESHEET============= {% endcomment %}
+    {% endblock stylesheet %}
+
+</head>
+<body>
+    
+    {% include 'navbar.html' %}
+
+    {% block content %}
+
+    {% comment %} ===========CONTENT============== {% endcomment %}
+
+    {% endblock content %}
+
+    {% include 'footer.html' %}
+    <script src='{% static "assets/aos/aos.js" %}'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+    
+    {% block javascript %}
+    {% comment %} =================JAVASCRIPT================ {% endcomment %}
+    {% endblock javascript %}
+</body>
+</html>

@@ -1,0 +1,210 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block stylesheet %}
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #dadada;
+    }
+
+    .social a {
+        padding: 20px;
+        color: #dadada;
+        font-size: 1.1rem;
+    }
+
+    #contact {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 0, 95);
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .social a:hover {
+        color: white;
+        transition: all ease 0.3s;
+    }
+
+    .contact-box {
+        background-color: #dadada;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--bs-font-sans-serif);
+        padding: 30px 30px;
+        box-shadow: 2px 0px 30px rgb(0, 0, 95);
+        border-radius: 10px;
+        color: rgb(0, 0, 95);
+    }
+
+    .c-heading h1 {
+        font-size: 2.5rem;
+        font-weight: lighter;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .c-heading p {
+        font-size: 0.8rem;
+        font-weight: lighter;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    .c-inputs {
+        margin: 15px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .c-inputs input {
+        width: 250px;
+        height: 45px;
+        margin: 10px 0px;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+    }
+
+    .c-inputs textarea {
+        width: 250px !important;
+        height: 200px !important;
+        outline: none;
+        padding: 10px;
+        font-size: 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .c-inputs button {
+        width: 200px;
+        height: 40px;
+        border: none;
+        outline: none;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+        letter-spacing: 1px;
+    }
+
+    .c-inputs input:focus {
+        transition: all ease 0.5s;
+    }
+
+    .c-inputs textarea:focus {
+        transition: all ease 0.5s;
+    }
+
+    .c-inputs button:active {
+        transform: scale(1.02);
+    }
+
+    .map {
+        filter: grayscale(0.2);
+        box-shadow: 2px 2px 30px rgb(0, 0, 95);
+        border-radius: 15px;
+        margin-left: 30px;
+    }
+
+    @media(max-width:1100px) {
+        .map {
+            display: none;
+        }
+    }
+
+    @media(max-width:450px) {
+        .social {
+            display: none;
+        }
+
+        .contact-box {
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        #contact {
+            position: static;
+            transform: translate(0, 0);
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .c-heading h1 {
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+    }
+</style>
+
+{% endblock stylesheet %}
+
+{% block title %}
+| Contact Us
+{% endblock title %}
+
+{% block content %}
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+
+<div id="contact" class="mt-5" style="margin-bottom: 3rem;">
+    <div class="social">
+        <a href="https://facebook.com" target="blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/" target="blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/" target="blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/" target="blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="contact-box">
+        <div class="c-heading">
+            <h1>Get In Touch</h1>
+            <p>Call or Email us regarding questions or issues</p>
+        </div>
+
+        <div class="c-inputs">
+            <form action="/contact/" method="POST"> {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="E-mail" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" name="message" placeholder="Write Message"></textarea>
+                </div>
+                <button class="btn btn-success btn-md" type="submit" style="margin-left: 1.5em;">Send</button>
+            </form>
+        </div>
+
+    </div>
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.047671509996!2d77.52409980380376!3d28.417818378113818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc0fbde92f919%3A0x8abfb97ed472bda6!2sSchool%20of%20ICT!5e0!3m2!1sen!2sin!4v1610049140001!5m2!1sen!2sin"
+            width="600" height="450" frameborder="0" style="border-radius: 15px;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+    {% if thank %}
+    alert('Thankyou for your contacting us!');
+    document.location = "/";
+    {% endif %}
+</script>
+{% endblock javascript %}

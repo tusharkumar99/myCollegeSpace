@@ -1,0 +1,189 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block stylesheet %}
+<style>
+    body {
+        background-color: #dadada;
+    }
+
+    #market {
+        color: rgb(0, 49, 95);
+    }
+
+    #market img {
+        box-shadow: 0px 0px 20px rgb(0, 0, 95);
+    }
+</style>
+
+{% endblock stylesheet %}
+
+{% block title %}
+| Portal
+{% endblock title %}
+
+{% block content %}
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#myCarousel" data-bs-slide-to="1" class=""></li>
+        <li data-bs-target="#myCarousel" data-bs-slide-to="2" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'assets/images/prog4.jfif' %}" height=400 alt="" class="d-block w-100">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Welcome to myGBUspace Portal</h1>
+                    {% if not request.session.user %}
+                    <p>Join now to enjoy all the priviledges!</p>
+                    <p><a class="btn btn-lg btn-success" href="/login/" role="button">Log In</a></p>
+                    {% else %}
+                    <p>Hi, {{request.session.name}}!</p>
+                    <p><a class="btn btn-primary" href="/dashboard/" role="button">My Dashboard</a></p>
+                    {%endif%}
+
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets/images/prog3.jfif' %}" height="400" class="d-block w-100" alt="">
+            <div class="container">
+                <div class="carousel-caption text-start" style="color: #dadada;">
+                    <h1>Projects, hands on, team up and more</h1>
+                    <p>A collaborative platform for all the students!</p>
+                    {% if not request.session.user %}
+                    <p><a class="btn btn-lg btn-success" href="/signup/" role="button">Sign up today</a></p>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets/images/prog.jfif' %}" height="400" class="d-block w-100" alt="">
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1>Increase your circle by registering here</h1>
+                    <p>Get in touch with other students and work on real time projects!</p>
+                    <p><a class="btn btn-lg btn-success" href="#market" role="button">Explore more</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+
+{% if not request.session.user %}
+<div class="container marketing" id="market">
+    <div class="row text-center mt-5">
+        <div class="col-lg-4">
+            <img src="{% static 'assets/images/team.png' %}" class="bd-placeholder-img rounded-circle" width="140"
+                height="140">
+            <h2>Connect and build</h2>
+            <p>Reduces communication gap and increases connectivity among the students. Junior year students can
+                participate in the on-going projects with the Seniors.</p>
+
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'assets/images/up2.png' %}" class="bd-placeholder-img rounded-circle" width="140"
+                height="140">
+            <h2>Showcase your work</h2>
+            <p>Companies can easily go through the work of the students by accessing the portal. One can upload project
+                ideas and build team.</p>
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'assets/images/oppo2.png' %}" class="bd-placeholder-img rounded-circle" width="140"
+                height="140">
+            <h2>Opportunities and more</h2>
+            <p>Enhanced opportunities and exposure for the students. Provides easy registeration for the upcoming events
+                in the university.</p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+</div>
+{%else%}
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-home">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-file">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-shopping-cart">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-users">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Customers
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="container">
+                <form action="/portal/" method="POST" class="mt-5 row justify-content-center"> 
+                    {% csrf_token %}
+                    <h3 class="col-md-3 d-flex align-items-center" style="color: rgb(0, 49, 95);">Hi, {{request.session.name}}</h3>
+                    <div class=" col-md-6 form-group">
+                        <input type="text" placeholder="What's on your mind ?" name="post" class="form-control" style="height: 6rem;">
+                    </div>
+                    <button class=" col-md-1 btn btn-success h-100 mt-4" type="submit">Post</button>
+                </form>
+            </div>
+            {% for i in all_posts %}
+            <p>{{i.name}}</p>
+            <p>{{i.post}}</p>
+            <p>{{i.dated}}</p>
+            {%endfor%}
+        </main>
+    </div>
+</div>
+
+{%endif%}
+
+{% endblock content %}

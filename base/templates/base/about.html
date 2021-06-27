@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block stylesheet %}
+<style>
+    body {
+        background-color: #fff;
+    }
+
+    .featurette {
+        margin-top: 8em;
+        color: rgb(0, 0, 95);
+    }
+    
+</style>
+
+{% endblock stylesheet %}
+
+{% block title %}
+| About Us
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row featurette">
+        <div class="col-md-7 text-start">
+            <h2 class="featurette-heading">Want to know <span class="text-muted">About Us ?</span></h2>
+            <p class="lead"><strong>myGBUspace</strong> is an initiative through which students can collaborate for a
+                project or can hire their fellow mates for the same.
+                Aim is to provide a common platform for seekers and providers. It will also help junior year students to
+                get an insight of how a project is actually build. Along with academics, myGBUspace has an entertainment
+                section which will give updates about on going events in GBU, somewhat like a social media platform only
+                for GBU students.
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'assets/images/6308.jpg' %}"
+                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width=500 height=500
+                alt="">
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

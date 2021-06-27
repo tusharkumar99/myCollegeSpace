@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block stylesheet %}
+<style>
+    body {
+        background-color: #dadada;
+    }
+</style>
+{% endblock stylesheet %}
+
+{% block title %}
+| My Dashboard
+{% endblock title %}
+
+{% block content %}
+<div class="mt-5" data-aos="fade-up">
+    <h2 style="color: #37517e;">Welcome, {{u.0.name}}</h2>
+    <div class="content" data-aos="fade-up" data-aos-delay="100">
+        <h3 style="color: #37517e;"><strong>Your posts are: </strong></h3>
+        {% for i in p %}
+        <p>{{i.post}}</p>
+        <p>{{i.dated}}</p>
+        {%endfor%}
+        <h3 style="color: #37517e; margin-bottom: 20.5rem;"><strong>Thank you for choosing us!</strong></h3>
+    </div>
+</div>
+{% endblock content %}

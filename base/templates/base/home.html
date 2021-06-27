@@ -1,0 +1,170 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block stylesheet %}
+<style>
+
+</style>
+{% endblock stylesheet %}
+
+{% block title %}
+| Home
+{% endblock title %}
+
+{% block content %}
+{% if not request.session.user %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>myCollegeSpace</strong> recommends you to log in/sign up to enjoy more features.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{%endif%}
+<div class="container back">
+    <h1 class="display-2 text-center mt-5">Welcome to myColSpace!</h1>
+    <figure class="text-center mt-4">
+        <blockquote class="blockquote">
+            <p> A platform where anyone can build a team for their dream projects and start-ups or any individual
+                can apply to be a part of them. myGBUspace will provide opportunities and will be having many more
+                features.
+            </p>
+        </blockquote>
+    </figure>
+    {% if not request.session.user %}
+    <button type="button" class="btn btn-success btn-lg" onclick="document.location='/login/'">Log In/Sign
+        Up</button>
+    {%endif%}
+</div>
+<div class="container-fluid" id="cards">
+    <div class="row cards mb-2">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div
+                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative cards">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Academics</strong>
+                    <h3 class="mb-0">Notes, Research Papers and more</h3>
+                    <p class="card-text mb-auto">Best material and updates about <strong>Academics!</strong></p>
+                    <a href="/notes/" class="stretched-link">Explore More!</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{% static 'assets/images/academics.png' %}" class="bd-placeholder-img mt-4" width="150" height="150" alt="..."
+                        style="margin-right: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div
+                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative cards">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Entertainment</strong>
+                    <h3 class="mb-0">Upcoming and ongoing event updates and more</h3>
+                    <p class="mb-auto">Event updates in sports, culture and <strong>Entertainment!</strong></p>
+                    <a href="/entertainment/" class="stretched-link">Explore More!</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{% static 'assets/images/entertainment2.png' %}" class="bd-placeholder-img mt-4" width="150" height="150"
+                        alt="..." style="margin-right: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div
+                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative cards">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Portal</strong>
+                    <h3 class="mb-0">Projects, hands on, team up and more</h3>
+                    <p class="mb-auto">A collaborative platform for all the students on <strong>Portal!</strong></p>
+                    <a href="/portal/" class="stretched-link">Explore More!</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{% static 'assets/images/portal.png' %}" class="bd-placeholder-img mt-4" width="125" height="125" alt="..." style="margin-right: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div
+                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative cards">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Jobs (upcoming feature)*</strong>
+                    <h3 class="mb-0">Placements, preparation and more</h3>
+                    <p class="mb-auto">Everything is coming soon in <strong>Jobs!</strong></p>
+                    <a href="#" class="stretched-link">Explore More!</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{% static 'assets/images/jobs.png' %}" class="bd-placeholder-img mt-4" width="125" height="125" alt="..."
+                        style="margin-right: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="features">
+        <p class="feat h1" data-aos="fade-up" data-aos-delay="100">FEATURES</p>
+        <div class="row featurette">
+            <div class="col-md-7" style="text-align: left;">
+                <h2 class="featurette-heading">Communicate, build, explore! <span class="text-muted">It’ll blow your
+                        mind.</span></h2>
+                <p class="lead">Reduces communication gap and increases connectivity among the students. One can
+                    upload project ideas and build team!</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'assets/images/team.png' %}"
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300"
+                    height="300" alt="...">
+            </div>
+        </div>
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2" style="text-align: right; margin-top: -2em;">
+                <h2 class="featurette-heading">Placement Assistance for everyone! <span class="text-muted">Coming
+                        Soon.</span></h2>
+                <p class="lead">Companies can easily go through the live projects of the students by accessing the
+                    portal and pick up whosoever is best for them. Hiring made easy with myGBUspace!</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="{% static 'assets/images/place.png' %}"
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300"
+                    height="300" alt="..." style="margin-top: -4em;">
+            </div>
+        </div>
+        <div class="row featurette">
+            <div class="col-md-7" style="text-align: left; margin-top: -2em;">
+                <h2 class="featurette-heading">Opportunities at your fingertips!<span class="text-muted"> We ain't
+                        joking.</span></h2>
+                <p class="lead">Junior year students can participate in the on-going projects with the Seniors.
+                    Enhanced opportunities and exposure for everyone!</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'assets/images/oppo2.png' %}"
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="240"
+                    height="240" alt="..." style="margin-top: -1.5em;">
+            </div>
+        </div>
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2" style="text-align: right; margin-top: -2em;">
+                <h2 class="featurette-heading">Updates, notes just one click away! <span class="text-muted">We got
+                        you.</span></h2>
+                <p class="lead">Events and cultural updates along with academics material, everything is available.
+                    Access free notes for every subject!</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="{% static 'assets/images/up2.png' %}"
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="250"
+                    height="250" alt="..." style="margin-top: -1.5em;">
+            </div>
+        </div>
+        <!-- <a href="#">Back to top</a> -->
+    </div>
+    <div class="container">
+        <p class="display-5 mt-4" style="color: rgb(0,0,95);">So, what are you waiting for!</p>
+        <p class="display-6" style="color: rgb(0,0,95);">Join myCollegeSpace now <a href="#"
+                style="text-decoration: none;">here.</a></p>
+        <img src="{% static 'assets/images/jump.png' %}"
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto mb-4" width="516"
+            height="300" alt="...">
+    </div>
+
+    <p class="text-center display-6" style="color: rgb(0,0,95);">Now, you know where to find us :)
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.047671509996!2d77.52409980380376!3d28.417818378113818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc0fbde92f919%3A0x8abfb97ed472bda6!2sSchool%20of%20ICT!5e0!3m2!1sen!2sin!4v1610049140001!5m2!1sen!2sin"
+            class="mt-4" width="100%" height="450" frameborder="0" style="border-radius: 10px;" allowfullscreen=""
+            aria-hidden="false" tabindex="0"></iframe>
+    </p>
+</div>
+
+{% endblock content %}

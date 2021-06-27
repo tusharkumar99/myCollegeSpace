@@ -1,0 +1,148 @@
+body{
+    background-color:   rgb(31, 31, 31);
+    z-index: -3;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    text-align: center;
+}
+
+.back::before{
+    content:"";
+    display: block;
+    margin-top: -3em;
+    margin-left: -7em;
+    position: absolute;
+    background: url('../images/cover.jpg') no-repeat center center/cover;
+    height: 28rem;
+    width: 100%;
+    z-index: -5;
+    opacity: 0.50;
+}
+
+.navigation{
+    z-index: 5;
+}
+
+.navbar{
+    background-color:  rgb(0, 0, 95) !important;
+    box-shadow: 0px 1px 5px #dadada;
+}
+
+.navbar .navbar-brand{
+    color: #dadada;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.navbar .navbar-brand:hover{
+    color: rgb(0, 0, 95);
+    background-color: #dadada;
+    border-radius: 40px;
+    padding: 8px;
+    transition: all 0.2s ease-out .1s;
+}
+
+.nav-item{
+    margin-left: 5px;
+    font-size: 1.1rem;
+    padding: 4px;
+}
+
+/* .nav-item :hover{
+    background-color: rgb(0, 0, 54);
+    border-radius: 20px;
+    transition: background-color 2s ease .1s;
+} */
+
+.display-2{
+    color:rgb(0, 0, 95);
+    background-color: #dadada;
+    max-width: 850px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.blockquote p{
+    display: inline-block;
+    color: #dadada;
+    font-weight: bold;
+}
+
+.container .btn{
+    display: inline-block;
+    margin-top: 0.8em;
+    font-size: 1em;
+}
+
+
+#cards{
+    margin-top: 6em;
+    background-color: #dadada;  
+}
+
+.cards{
+    cursor: pointer;  
+    margin: 25px auto;
+    padding: 5px;
+    max-width: 80em;
+    color: rgb(0, 0, 95);
+    transition: all 0.1s ease-in-out;
+}
+
+.cards :hover{
+    transform: scale(1.01);
+}
+
+.g-0{
+    background-color: white;
+}
+
+.features{
+    background-color: rgb(0, 0, 95);
+    border-radius: 50px;
+    cursor: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.feat{
+    position: relative;
+    display: inline-block;
+    font-family: var(--bs-font-sans-serif); 
+    font-size: 3em;
+  
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 0.5em;
+    color: rgb(0, 0, 95);
+    background-color: #dadada;
+    animation: anim1 5s ease-in-out infinite forwards;
+}
+@keyframes anim1 {
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    } 
+}
+
+.featurette{
+    color:#dadada;
+    padding: 3em 4em;
+}
